@@ -1,0 +1,13 @@
+// Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+function spinalCase(str) {
+  let str1, str2;
+  str2 = str.replace(/[ _]/g, "-");
+  console.log(str2);
+  str1 = str2.replace(/(?!^[A-Z])[^-][A-Z]/g , (x)=>{
+    return x.length === 1 ? "-"+x: x[0] +"-" + x[1];
+  });
+  return str1.toLowerCase();
+}
+
+console.log(spinalCase("AllThe-small Things"));
