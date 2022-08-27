@@ -1,0 +1,19 @@
+function whatIsInAName(collection, source) {
+  const arr = [];
+  let s = Object.keys(source), count = 0;
+  for(let i = 0; i < collection.length; i++){
+    count = 0;
+    for (let j = 0; j < s.length; j++){
+       if(s[j] in collection[i] && source[s[j]] === collection[i][s[j]])
+       {
+         count++;
+       }
+    }
+    if(count >= s.length){
+      arr.push(collection[i])
+    }
+  }
+  return arr;
+}
+
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }));
