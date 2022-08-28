@@ -1,0 +1,17 @@
+// Flatten a nested array. You must account for varying levels of nesting.
+
+function steamrollArray(arr) {
+  let i = 0, array = [];
+  while(i < arr.length){
+    if(Array.isArray(arr[i])){
+      array.push(...steamrollArray(arr[i]));
+    }else{
+      array.push(arr[i]);
+    }
+    i++;
+  }
+
+  return array;
+}
+
+console.log(steamrollArray([1, [2], [3, [[4]]]]));
