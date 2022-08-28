@@ -1,0 +1,18 @@
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+function convertHTML(str) {
+  const entities = {
+    "&": "&amp;", 
+    "<": "&lt;", 
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;"
+  }
+
+  for(e in entities){
+      str = str.replaceAll(e, entities[e]);
+  }
+  return str;
+}
+
+console.log(convertHTML("Dolce & Gabbana"));
